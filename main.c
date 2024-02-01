@@ -2,7 +2,119 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
-// #include <age-caculator.c>
+
+void additionCalculator()
+{
+
+    void performSimpleAddition()
+    {
+        int num1, num2;
+
+        printf("Enter two numbers: ");
+        scanf("%d %d", &num1, &num2);
+
+        printf("Result: %d\n", num1 + num2);
+    }
+
+    void performAdvancedAddition()
+    {
+        int n, sum = 0, num;
+
+        printf("How many numbers do you want to add? ");
+        scanf("%d", &n);
+
+        printf("Enter %d numbers: ", n);
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d", &num);
+            sum += num;
+        }
+
+        printf("Result: %d\n", sum);
+    }
+
+    void performMatrixAddition()
+    {
+        int N, M;
+
+        printf("Enter the number of rows (N) and columns (M) for the matrices: ");
+        scanf("%d %d", &N, &M);
+
+        int matrix1[N][M], matrix2[N][M], result[N][M];
+
+        // Input for the first matrix
+        printf("Enter elements for the first matrix (%d x %d):\n", N, M);
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+            {
+                scanf("%d", &matrix1[i][j]);
+            }
+        }
+
+        // Input for the second matrix
+        printf("Enter elements for the second matrix (%d x %d):\n", N, M);
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+            {
+                scanf("%d", &matrix2[i][j]);
+            }
+        }
+
+        // Matrix addition
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+            {
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+
+        // Displaying the result matrix
+        printf("Result Matrix:\n");
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+            {
+                printf("%d ", result[i][j]);
+            }
+            printf("\n");
+        }
+    }
+
+    int choice;
+
+    do
+    {
+        printf("\n\tAddition Menu\n");
+        printf("Which type of addition would you like to perform?\n");
+        printf("Press 1 for Simple addition\n");
+        printf("Press 2 for Advanced addition\n");
+        printf("Press 3 for Matrix addition\n");
+        printf("Press 4 to Return to the Main Menu\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            performSimpleAddition();
+            break;
+        case 2:
+            performAdvancedAddition();
+            break;
+        case 3:
+            performMatrixAddition();
+            break;
+        case 4:
+            printf("Returning to the Main Menu.\n");
+            break;
+        default:
+            printf("Invalid choice. Please enter a valid option.\n");
+        }
+    } while (choice != 4);
+}
 
 // Function to handle equation solving
 void equationCalculator()
@@ -360,7 +472,7 @@ int main()
         switch (choice)
         {
         case 1:
-
+            additionCalculator();
             break;
         case 2:
 
