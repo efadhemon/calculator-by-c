@@ -116,6 +116,269 @@ void additionCalculator()
     } while (choice != 4);
 }
 
+void subtractionCalculator()
+{
+
+    void performSimpleSubtraction()
+    {
+        int num1, num2;
+
+        printf("Enter two numbers: ");
+        scanf("%d %d", &num1, &num2);
+
+        printf("Result: %d\n", num1 - num2);
+    }
+
+    void performAbsoluteDifference()
+    {
+        int num1, num2;
+
+        printf("Enter two numbers: ");
+        scanf("%d %d", &num1, &num2);
+
+        printf("Absolute difference: %d\n", abs(num1 - num2));
+    }
+
+    int choice;
+
+    do
+    {
+        printf("\n\tSubtraction Menu\n");
+        printf("Which type of subtraction would you like to perform?\n\n");
+        printf("Press 1 for Simple subtraction\n");
+        printf("Press 2 for Absolute difference\n");
+        printf("Press 3 to Return to the Main Menu\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            performSimpleSubtraction();
+            break;
+        case 2:
+            performAbsoluteDifference();
+            break;
+        case 3:
+            printf("Returning to the Main Menu.\n");
+            break;
+        default:
+            printf("Invalid choice. Please enter a valid option.\n");
+        }
+    } while (choice != 3);
+}
+
+void divisionCalculator()
+{
+
+    void performSimpleDivision()
+    {
+        int a, b;
+
+        printf("Enter two numbers (a and b) for a ÷ b: ");
+        scanf("%d %d", &a, &b);
+
+        if (b != 0)
+        {
+            float result = (float)a / b;
+            printf("Result: %.2f\n", result);
+        }
+        else
+        {
+            printf("Error: Division by zero is undefined.\n");
+        }
+    }
+
+    void performAdvancedDivision()
+    {
+        int a, b;
+
+        printf("Enter two numbers (a and b) for a ÷ b: ");
+        scanf("%d %d", &a, &b);
+
+        if (b != 0)
+        {
+            int quotient = a / b;
+            int remainder = a % b;
+            printf("Result: %d with remainder %d\n", quotient, remainder);
+        }
+        else
+        {
+            printf("Error: Division by zero is undefined.\n");
+        }
+    }
+
+    int choice;
+
+    do
+    {
+        printf("\n\tDivision Menu\n");
+        printf("Which type of division would you like to perform?\n\n");
+        printf("Press 1 for Simple division\n");
+        printf("Press 2 for Advanced division\n");
+        printf("Press 3 to Return to the Main Menu\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            performSimpleDivision();
+            break;
+        case 2:
+            performAdvancedDivision();
+            break;
+        case 3:
+            printf("Returning to the Main Menu.\n");
+            break;
+        default:
+            printf("Invalid choice. Please enter a valid option.\n");
+        }
+    } while (choice != 3);
+}
+
+void performSimpleMultiply()
+{
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    printf("Result: %d\n", num1 * num2);
+}
+
+void performModuloMultiply()
+{
+    int a, b, m;
+
+    printf("Enter three numbers (a, b, and m) for (a * b) modulo m: ");
+    scanf("%d %d %d", &a, &b, &m);
+
+    int result = (a * b) % m;
+    printf("Result: %d\n", result);
+}
+
+void performMatrixMultiplication()
+{
+    int aRows, aCols, bRows, bCols;
+
+    printf("Enter dimensions for the first matrix (a x b): ");
+    scanf("%d %d", &aRows, &aCols);
+
+    printf("Enter dimensions for the second matrix (c x d): ");
+    scanf("%d %d", &bRows, &bCols);
+
+    if (aCols != bRows)
+    {
+        printf("Error: Matrix multiplication is not possible with the given dimensions.\n");
+        return;
+    }
+
+    int matrix1[aRows][aCols], matrix2[bRows][bCols], result[aRows][bCols];
+
+    printf("Enter elements for the first matrix:\n");
+    for (int i = 0; i < aRows; i++)
+    {
+        for (int j = 0; j < aCols; j++)
+        {
+            scanf("%d", &matrix1[i][j]);
+        }
+    }
+
+    printf("Enter elements for the second matrix:\n");
+    for (int i = 0; i < bRows; i++)
+    {
+        for (int j = 0; j < bCols; j++)
+        {
+            scanf("%d", &matrix2[i][j]);
+        }
+    }
+
+    // Matrix multiplication
+    for (int i = 0; i < aRows; i++)
+    {
+        for (int j = 0; j < bCols; j++)
+        {
+            result[i][j] = 0;
+            for (int k = 0; k < aCols; k++)
+            {
+                result[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+
+    // Displaying the result matrix
+    printf("Result Matrix:\n");
+    for (int i = 0; i < aRows; i++)
+    {
+        for (int j = 0; j < bCols; j++)
+        {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void performExponentiation()
+{
+    int a, b, m;
+
+    printf("Enter three numbers (a, b, and m) for (a^b) modulo m: ");
+    scanf("%d %d %d", &a, &b, &m);
+
+    int result = 1;
+    while (b > 0)
+    {
+        if (b % 2 == 1)
+        {
+            result = (result * a) % m;
+        }
+        a = (a * a) % m;
+        b /= 2;
+    }
+
+    printf("Result: %d\n", result);
+}
+
+void multiplyCalculator()
+{
+    int choice;
+
+    do
+    {
+        printf("\n\tMultiplication Menu\n");
+        printf("Which type of multiplication would you like to perform?\n\n");
+        printf("Press 1 for Simple multiply\n");
+        printf("Press 2 for Modulo multiply\n");
+        printf("Press 3 for Matrix multiplication\n");
+        printf("Press 4 for Exponentiation\n");
+        printf("Press 5 to Return to the Main Menu\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            performSimpleMultiply();
+            break;
+        case 2:
+            performModuloMultiply();
+            break;
+        case 3:
+            performMatrixMultiplication();
+            break;
+        case 4:
+            performExponentiation();
+            break;
+        case 5:
+            printf("Returning to the Main Menu.\n");
+            break;
+        default:
+            printf("Invalid choice. Please enter a valid option.\n");
+        }
+    } while (choice != 5);
+}
+
 // Function to handle equation solving
 void equationCalculator()
 {
@@ -414,6 +677,127 @@ void ageCalculator()
            ageDays);
 }
 
+void performStatistics()
+{
+    int N;
+
+    printf("Enter the number of elements (N) for statistics: ");
+    scanf("%d", &N);
+
+    if (N <= 0)
+    {
+        printf("Invalid input. Number of elements must be positive.\n");
+        return;
+    }
+
+    int numbers[N];
+
+    printf("Enter %d numbers:\n", N);
+    for (int i = 0; i < N; i++)
+    {
+        scanf("%d", &numbers[i]);
+    }
+
+    int sum = 0;
+    int min = numbers[0];
+    int max = numbers[0];
+    int frequency[100] = {0}; // Assuming a maximum value of 100 for simplicity
+
+    // Calculating sum, min, max, and frequency
+    for (int i = 0; i < N; i++)
+    {
+        sum += numbers[i];
+
+        if (numbers[i] < min)
+        {
+            min = numbers[i];
+        }
+
+        if (numbers[i] > max)
+        {
+            max = numbers[i];
+        }
+
+        frequency[numbers[i]]++;
+    }
+
+    float average = (float)sum / N;
+    int mostFrequentValue = 0;
+    int mostFrequentCount = 0;
+
+    // Finding most frequent value
+    for (int i = 0; i < 100; i++)
+    {
+        if (frequency[i] > mostFrequentCount)
+        {
+            mostFrequentCount = frequency[i];
+            mostFrequentValue = i;
+        }
+    }
+
+    // Finding unique values
+    int uniqueCount = 0;
+    for (int i = 0; i < 100; i++)
+    {
+        if (frequency[i] == 1)
+        {
+            uniqueCount++;
+        }
+    }
+
+    // Finding median
+    int sortedNumbers[N];
+    for (int i = 0; i < N; i++)
+    {
+        sortedNumbers[i] = numbers[i];
+    }
+
+    for (int i = 0; i < N - 1; i++)
+    {
+        for (int j = 0; j < N - i - 1; j++)
+        {
+            if (sortedNumbers[j] > sortedNumbers[j + 1])
+            {
+                // Swap the elements if they are in the wrong order
+                int temp = sortedNumbers[j];
+                sortedNumbers[j] = sortedNumbers[j + 1];
+                sortedNumbers[j + 1] = temp;
+            }
+        }
+    }
+
+    float median;
+    if (N % 2 == 0)
+    {
+        // If the number of elements is even, average the middle two elements
+        median = (float)(sortedNumbers[N / 2 - 1] + sortedNumbers[N / 2]) / 2;
+    }
+    else
+    {
+        // If the number of elements is odd, take the middle element
+        median = sortedNumbers[N / 2];
+    }
+
+    // Calculating variance
+    float variance = 0;
+    for (int i = 0; i < N; i++)
+    {
+        variance += (numbers[i] - average) * (numbers[i] - average);
+    }
+    variance /= N;
+
+    // Displaying the statistical information
+    printf("Statistics Report:\n");
+    printf("Sum: %d\n", sum);
+    printf("Min: %d\n", min);
+    printf("Max: %d\n", max);
+    printf("Average: %.2f\n", average);
+    printf("Most frequent value: %d\n", mostFrequentValue);
+    printf("Unique values count: %d\n", uniqueCount);
+    printf("Median: %.2f\n", median);
+    printf("Variance: %.2f\n", variance);
+}
+
 void miscellaneousCalculator()
 {
     int choice;
@@ -439,7 +823,7 @@ void miscellaneousCalculator()
             ageCalculator();
             break;
         case 3:
-            // statisticsCalculator();
+            performStatistics();
             break;
         case 4:
             return;
@@ -460,7 +844,7 @@ int main()
         printf("Which operation would you like to perform?\n\n");
         printf("Press 1 for add\n");
         printf("Press 2 for subtract\n");
-        printf("Press 3 for multiply\n");
+        printf("Press 3 for division\n");
         printf("Press 4 for multiply\n");
         printf("Press 5 for solving equation\n");
         printf("Press 6 for Miscellaneous\n");
@@ -475,13 +859,13 @@ int main()
             additionCalculator();
             break;
         case 2:
-
+            subtractionCalculator();
             break;
         case 3:
-
+            divisionCalculator();
             break;
         case 4:
-
+            multiplyCalculator();
             break;
         case 5:
             equationCalculator();
