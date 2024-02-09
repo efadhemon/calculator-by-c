@@ -3,86 +3,86 @@
 #include <math.h>
 #include <stdbool.h>
 
+void performSimpleAddition()
+{
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    printf("Result: %d\n", num1 + num2);
+}
+
+void performAdvancedAddition()
+{
+    int n, sum = 0, num;
+
+    printf("How many numbers do you want to add? ");
+    scanf("%d", &n);
+
+    printf("Enter %d numbers: ", n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &num);
+        sum += num;
+    }
+
+    printf("Result: %d\n", sum);
+}
+
+void performMatrixAddition()
+{
+    int N, M;
+
+    printf("Enter the number of rows (N) and columns (M) for the matrices: ");
+    scanf("%d %d", &N, &M);
+
+    int matrix1[N][M], matrix2[N][M], result[N][M];
+
+    // Input for the first matrix
+    printf("Enter elements for the first matrix (%d x %d):\n", N, M);
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            scanf("%d", &matrix1[i][j]);
+        }
+    }
+
+    // Input for the second matrix
+    printf("Enter elements for the second matrix (%d x %d):\n", N, M);
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            scanf("%d", &matrix2[i][j]);
+        }
+    }
+
+    // Matrix addition
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            result[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+
+    // Displaying the result matrix
+    printf("Result Matrix:\n");
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Function to handle addition
 void additionCalculator()
 {
-
-    void performSimpleAddition()
-    {
-        int num1, num2;
-
-        printf("Enter two numbers: ");
-        scanf("%d %d", &num1, &num2);
-
-        printf("Result: %d\n", num1 + num2);
-    }
-
-    void performAdvancedAddition()
-    {
-        int n, sum = 0, num;
-
-        printf("How many numbers do you want to add? ");
-        scanf("%d", &n);
-
-        printf("Enter %d numbers: ", n);
-        for (int i = 0; i < n; i++)
-        {
-            scanf("%d", &num);
-            sum += num;
-        }
-
-        printf("Result: %d\n", sum);
-    }
-
-    void performMatrixAddition()
-    {
-        int N, M;
-
-        printf("Enter the number of rows (N) and columns (M) for the matrices: ");
-        scanf("%d %d", &N, &M);
-
-        int matrix1[N][M], matrix2[N][M], result[N][M];
-
-        // Input for the first matrix
-        printf("Enter elements for the first matrix (%d x %d):\n", N, M);
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < M; j++)
-            {
-                scanf("%d", &matrix1[i][j]);
-            }
-        }
-
-        // Input for the second matrix
-        printf("Enter elements for the second matrix (%d x %d):\n", N, M);
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < M; j++)
-            {
-                scanf("%d", &matrix2[i][j]);
-            }
-        }
-
-        // Matrix addition
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < M; j++)
-            {
-                result[i][j] = matrix1[i][j] + matrix2[i][j];
-            }
-        }
-
-        // Displaying the result matrix
-        printf("Result Matrix:\n");
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < M; j++)
-            {
-                printf("%d ", result[i][j]);
-            }
-            printf("\n");
-        }
-    }
-
     int choice;
 
     do
@@ -116,28 +116,29 @@ void additionCalculator()
     } while (choice != 4);
 }
 
+void performSimpleSubtraction()
+{
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    printf("Result: %d\n", num1 - num2);
+}
+
+void performAbsoluteDifference()
+{
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    printf("Absolute difference: %d\n", abs(num1 - num2));
+}
+
+// Function to handle subtraction
 void subtractionCalculator()
 {
-
-    void performSimpleSubtraction()
-    {
-        int num1, num2;
-
-        printf("Enter two numbers: ");
-        scanf("%d %d", &num1, &num2);
-
-        printf("Result: %d\n", num1 - num2);
-    }
-
-    void performAbsoluteDifference()
-    {
-        int num1, num2;
-
-        printf("Enter two numbers: ");
-        scanf("%d %d", &num1, &num2);
-
-        printf("Absolute difference: %d\n", abs(num1 - num2));
-    }
 
     int choice;
 
@@ -168,6 +169,7 @@ void subtractionCalculator()
     } while (choice != 3);
 }
 
+// Function to handle division
 void divisionCalculator()
 {
 
@@ -340,8 +342,10 @@ void performExponentiation()
     printf("Result: %d\n", result);
 }
 
+// Function to handle multiply
 void multiplyCalculator()
 {
+
     int choice;
 
     do
@@ -379,62 +383,61 @@ void multiplyCalculator()
     } while (choice != 5);
 }
 
+// Function to solve a set of linear equations
+void solveSimpleEquation()
+{
+    int a, b, c, d, e, f;
+    printf("Enter the values of a, b, c, d, e, f: ");
+    scanf("%d %d %d %d %d %d", &a, &b, &c, &d, &e, &f);
+
+    // Calculating determinant
+    int determinant = a * e - b * d;
+
+    if (determinant != 0)
+    {
+        float x = (c * e - b * f) / (float)determinant;
+        float y = (a * f - c * d) / (float)determinant;
+
+        printf("Solution: x = %f, y = %f\n", x, y);
+    }
+    else
+    {
+        printf("No unique solution exists for this set of equations.\n");
+    }
+}
+
+// Function to solve a quadratic equation
+void solveComplexEquation()
+{
+    int a, b, c;
+    printf("Enter the values of a, b, c: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    // Calculating determinant
+    int determinant = b * b - 4 * a * c;
+
+    if (determinant > 0)
+    {
+        float root1 = (-b + sqrt(determinant)) / (2.0 * a);
+        float root2 = (-b - sqrt(determinant)) / (2.0 * a);
+        printf("Roots are real and different: x1 = %f, x2 = %f\n", root1, root2);
+    }
+    else if (determinant == 0)
+    {
+        float root = -b / (2.0 * a);
+        printf("Roots are real and same: x = %f\n", root);
+    }
+    else
+    {
+        float realPart = -b / (2.0 * a);
+        float imaginaryPart = sqrt(-determinant) / (2.0 * a);
+        printf("Roots are complex and different: x1 = %f + %fi, x2 = %f - %fi\n", realPart, imaginaryPart, realPart, imaginaryPart);
+    }
+}
+
 // Function to handle equation solving
 void equationCalculator()
 {
-
-    // Function to solve a set of linear equations
-    void solveSimpleEquation()
-    {
-        int a, b, c, d, e, f;
-        printf("Enter the values of a, b, c, d, e, f: ");
-        scanf("%d %d %d %d %d %d", &a, &b, &c, &d, &e, &f);
-
-        // Calculating determinant
-        int determinant = a * e - b * d;
-
-        if (determinant != 0)
-        {
-            float x = (c * e - b * f) / (float)determinant;
-            float y = (a * f - c * d) / (float)determinant;
-
-            printf("Solution: x = %f, y = %f\n", x, y);
-        }
-        else
-        {
-            printf("No unique solution exists for this set of equations.\n");
-        }
-    }
-
-    // Function to solve a quadratic equation
-    void solveComplexEquation()
-    {
-        int a, b, c;
-        printf("Enter the values of a, b, c: ");
-        scanf("%d %d %d", &a, &b, &c);
-
-        // Calculating determinant
-        int determinant = b * b - 4 * a * c;
-
-        if (determinant > 0)
-        {
-            float root1 = (-b + sqrt(determinant)) / (2.0 * a);
-            float root2 = (-b - sqrt(determinant)) / (2.0 * a);
-            printf("Roots are real and different: x1 = %f, x2 = %f\n", root1, root2);
-        }
-        else if (determinant == 0)
-        {
-            float root = -b / (2.0 * a);
-            printf("Roots are real and same: x = %f\n", root);
-        }
-        else
-        {
-            float realPart = -b / (2.0 * a);
-            float imaginaryPart = sqrt(-determinant) / (2.0 * a);
-            printf("Roots are complex and different: x1 = %f + %fi, x2 = %f - %fi\n", realPart, imaginaryPart, realPart, imaginaryPart);
-        }
-    }
-
     int choice;
 
     do
@@ -465,99 +468,88 @@ void equationCalculator()
     } while (choice != 3);
 }
 
+// Function to calculate area of a triangle
+void calculateTriangleArea()
+{
+    float a, b, c;
+
+    // Input the lengths of three sides of the triangle
+    printf("\nEnter the lengths of side 1 of the triangle: ");
+    scanf("%f", &a);
+    printf("Enter the lengths of side 2 of the triangle: ");
+    scanf("%f", &b);
+    printf("Enter the lengths of side 3 of the triangle: ");
+    scanf("%f", &c);
+
+    // Check if the input forms a valid triangle
+    if (a + b > c && b + c > a && c + a > b)
+    {
+        // Calculate semi-perimeter
+        float s = (a + b + c) / 2;
+
+        // Calculate area using Heron's formula
+        float area = sqrt(s * (s - a) * (s - b) * (s - c));
+
+        printf("Area of the triangle: %.2f square units\n", area);
+    }
+    else
+    {
+        printf("Invalid input. The input does not form a valid triangle.\n");
+    }
+}
+
+// Function to calculate area of a rectangle
+void calculateRectangleArea()
+{
+    float length, width;
+    printf("\nEnter the length of the rectangle: ");
+    scanf("%f", &length);
+    printf("Enter the width of the rectangle: ");
+    scanf("%f", &width);
+
+    if (length > 0 && width > 0)
+    {
+        // Calculate and print the area
+        float area = length * width;
+        printf("Area of the rectangle: %.2f square units\n", area);
+    }
+    else
+    {
+        // Invalid input, sides should be positive
+        printf("Invalid input. Please enter positive values for the sides of the rectangle.\n");
+    }
+}
+
+// Function to calculate area of a trapezium
+void calculateTrapeziumArea()
+{
+    float base1, base2, height;
+    printf("\nEnter the length of base 1 of the trapezium: ");
+    scanf("%f", &base1);
+    printf("Enter the length of base 2 of the trapezium: ");
+    scanf("%f", &base2);
+    printf("Enter the height of the trapezium: ");
+    scanf("%f", &height);
+    float area = 0.5 * (base1 + base2) * height;
+    printf("Area of the trapezium: %.2f square units\n", area);
+}
+
+// Function to calculate area of a circle
+void calculateCircleArea()
+{
+    const float PI = 3.1416;
+    float radius;
+    printf("\nEnter the radius of the circle: ");
+    scanf("%f", &radius);
+    float area = PI * radius * radius;
+    printf("Area of the circle: %.2f square units\n", area);
+}
+
 // Function to handle area calculations
 void areaCalculator()
 {
-
-    // Function to calculate area of a triangle
-    // void calculateTriangleArea()
-    // {
-    //     float base, height;
-    //     printf("Enter the base of the triangle: ");
-    //     scanf("%f", &base);
-    //     printf("Enter the height of the triangle: ");
-    //     scanf("%f", &height);
-    //     float area = 0.5 * base * height;
-    //     printf("Area of the triangle: %.2f square units\n", area);
-    // }
-
-    void calculateTriangleArea()
-    {
-        float a, b, c;
-
-        // Input the lengths of three sides of the triangle
-        printf("\nEnter the lengths of side 1 of the triangle: ");
-        scanf("%f", &a);
-        printf("Enter the lengths of side 2 of the triangle: ");
-        scanf("%f", &b);
-        printf("Enter the lengths of side 3 of the triangle: ");
-        scanf("%f", &c);
-
-        // Check if the input forms a valid triangle
-        if (a + b > c && b + c > a && c + a > b)
-        {
-            // Calculate semi-perimeter
-            float s = (a + b + c) / 2;
-
-            // Calculate area using Heron's formula
-            float area = sqrt(s * (s - a) * (s - b) * (s - c));
-
-            printf("Area of the triangle: %.2f square units\n", area);
-        }
-        else
-        {
-            printf("Invalid input. The input does not form a valid triangle.\n");
-        }
-    }
-
-    // Function to calculate area of a rectangle
-    void calculateRectangleArea()
-    {
-        float length, width;
-        printf("\nEnter the length of the rectangle: ");
-        scanf("%f", &length);
-        printf("Enter the width of the rectangle: ");
-        scanf("%f", &width);
-
-        if (length > 0 && width > 0)
-        {
-            // Calculate and print the area
-            float area = length * width;
-            printf("Area of the rectangle: %.2f square units\n", area);
-        }
-        else
-        {
-            // Invalid input, sides should be positive
-            printf("Invalid input. Please enter positive values for the sides of the rectangle.\n");
-        }
-    }
-
-    // Function to calculate area of a trapezium
-    void calculateTrapeziumArea()
-    {
-        float base1, base2, height;
-        printf("\nEnter the length of base 1 of the trapezium: ");
-        scanf("%f", &base1);
-        printf("Enter the length of base 2 of the trapezium: ");
-        scanf("%f", &base2);
-        printf("Enter the height of the trapezium: ");
-        scanf("%f", &height);
-        float area = 0.5 * (base1 + base2) * height;
-        printf("Area of the trapezium: %.2f square units\n", area);
-    }
-
-    // Function to calculate area of a circle
-    void calculateCircleArea()
-    {
-        const float PI = 3.1416;
-        float radius;
-        printf("\nEnter the radius of the circle: ");
-        scanf("%f", &radius);
-        float area = PI * radius * radius;
-        printf("Area of the circle: %.2f square units\n", area);
-    }
-
     int choice;
+
     do
     {
         // Menu for selecting shapes
@@ -596,7 +588,6 @@ void areaCalculator()
 // Function to calculate age
 void ageCalculator()
 {
-
     // Function to check if a year is a leap year
     bool isLeapYear(int year)
     {
@@ -677,25 +668,31 @@ void ageCalculator()
            ageDays);
 }
 
+// Function to find statistics
 void performStatistics()
 {
     int N;
 
+    // Input for the number of elements (N)
     printf("Enter the number of elements (N) for statistics: ");
     scanf("%d", &N);
-
     if (N <= 0)
     {
-        printf("Invalid input. Number of elements must be positive.\n");
+        printf("Invalid input. Please enter a positive integer for the number of elements.\n");
         return;
     }
 
     int numbers[N];
 
+    // Input for the array of numbers
     printf("Enter %d numbers:\n", N);
     for (int i = 0; i < N; i++)
     {
-        scanf("%d", &numbers[i]);
+        if (scanf("%d", &numbers[i]) != 1)
+        {
+            printf("Invalid input. Please enter a valid integer.\n");
+            return;
+        }
     }
 
     int sum = 0;
@@ -798,6 +795,7 @@ void performStatistics()
     printf("Variance: %.2f\n", variance);
 }
 
+// Function to handle miscellaneous calculation
 void miscellaneousCalculator()
 {
     int choice;
